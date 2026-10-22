@@ -1,0 +1,52 @@
+@model BookLibrary.Models.Book
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>📖 Book Details</h1>
+        <a asp-action="Index" class="btn btn-secondary">Back to Books</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h2 class="h4 mb-0">@Model.Title</h2>
+        </div>
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-3">Author</dt>
+                <dd class="col-sm-9">@Model.Author</dd>
+
+                <dt class="col-sm-3">Genre</dt>
+                <dd class="col-sm-9">@(string.IsNullOrWhiteSpace(Model.Genre) ? "Not specified" : Model.Genre)</dd>
+
+                <dt class="col-sm-3">ISBN</dt>
+                <dd class="col-sm-9">@Model.ISBN</dd>
+
+                <dt class="col-sm-3">Description</dt>
+                <dd class="col-sm-9">@(string.IsNullOrWhiteSpace(Model.Description) ? "No description available." : Model.Description)</dd>
+
+                <dt class="col-sm-3">Price</dt>
+                <dd class="col-sm-9">$@Model.Price.ToString("0.00")</dd>
+
+                <dt class="col-sm-3">Quantity in stock</dt>
+                <dd class="col-sm-9">@Model.Quantity</dd>
+
+                <dt class="col-sm-3">Published date</dt>
+                <dd class="col-sm-9">@Model.PublishedDate.ToString("MMMM d, yyyy")</dd>
+
+                <dt class="col-sm-3">Created</dt>
+                <dd class="col-sm-9">@Model.CreatedAt.ToString("MMMM d, yyyy h:mm tt")</dd>
+
+                <dt class="col-sm-3">Last updated</dt>
+                <dd class="col-sm-9">@Model.UpdatedAt.ToString("MMMM d, yyyy h:mm tt")</dd>
+            </dl>
+        </div>
+        <div class="card-footer">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+</div>

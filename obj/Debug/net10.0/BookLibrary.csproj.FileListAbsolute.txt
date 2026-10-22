@@ -186,3 +186,4 @@ C:\Users\user\Desktop\BookLibrary\obj\Debug\net10.0\refint\BookLibrary.dll
 C:\Users\user\Desktop\BookLibrary\obj\Debug\net10.0\BookLibrary.pdb
 C:\Users\user\Desktop\BookLibrary\obj\Debug\net10.0\BookLibrary.genruntimeconfig.cache
 C:\Users\user\Desktop\BookLibrary\obj\Debug\net10.0\ref\BookLibrary.dll
+C:\Users\user\Desktop\BookLibrary\obj\Debug\net10.0\BookLibrary.sourcelink.json
