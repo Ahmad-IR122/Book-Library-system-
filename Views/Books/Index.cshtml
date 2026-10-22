@@ -1,0 +1,42 @@
+@model List<BookLibrary.Models.Book>
+
+<div class="container mt-5">
+    <h1>📚 Book Library</h1>
+    <a asp-action="Create" class="btn btn-primary mb-3">➕ Add New Book</a>
+
+    @if (Model == null || Model.Count == 0)
+    {
+        <div class="alert alert-info">No books yet. Add one!</div>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in Model)
+                {
+                    <tr>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.Genre</td>
+                        <td>$@book.Price</td>
+                        <td>@book.Quantity</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-warning btn-sm">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
